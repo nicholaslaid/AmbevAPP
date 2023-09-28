@@ -33,7 +33,7 @@ namespace Ambev.Api
 
 
             Result response = api.GetComand("Ambev/Handshake");
-
+             
             if(response.success)
             {
                 result = true;
