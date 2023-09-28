@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ambev.Api
 {
-    public class Ambev
+    public class AmbevAPI
     {
 
         public string GetToken(string user, string password)
@@ -16,7 +16,7 @@ namespace Ambev.Api
            
             ApiBase api = new ApiBase();
 
-            Result response = api.GetComand("Ambev/GetToken?user=" + user + "?password=" + password);
+            Result response = api.GetComand("Ambev/GetToken?user=" + user + "&password=" + password);
 
             if (response.success)
             {
@@ -42,11 +42,11 @@ namespace Ambev.Api
             return result;
         }
 
-        public bool AccessTest(Request request)
+        public bool AccessTest(string token)
         {
             ApiBase api = new ApiBase();
 
-            Result result = api.GetComand("Ambev/AccessTest?token=" + request.token);
+            Result result = api.GetComand("Ambev/AccessTest?token=" + token);
 
             bool resultado = false;
 

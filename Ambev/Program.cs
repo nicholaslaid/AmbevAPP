@@ -1,3 +1,5 @@
+using Ambev.Global;
+
 namespace Ambev
 {
     internal static class Program
@@ -11,7 +13,9 @@ namespace Ambev
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            Log.Save("Aplicação inicializada");
             Application.Run(new Teste());
+          
         }
     }
 }
