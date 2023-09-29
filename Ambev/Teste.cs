@@ -15,29 +15,31 @@ namespace Ambev
 
         private void btnVerificar_Click(object sender, EventArgs e)
         {
+            txtTk.Clear();
+
             AmbevAPI ambev = new AmbevAPI();
 
             String user = txtUser.Text;
             String senha = txtSenha.Text;
 
-      
-            string result = ambev.GetToken(user, senha); 
 
-            Config.tokenMemory = result; 
+            string result = ambev.GetToken(user, senha);
+
+            Config.tokenMemory = result;
 
             txtTk.Text = result;
 
-            
+
             if (txtTk.Text.Length > 1)
             {
                 MessageBox.Show("Logado");
-                Log.Save("Logado");
+               // Log.Save("Logado");
 
             }
             else
             {
                 MessageBox.Show("Erro ao tentar logar");
-                Log.Save("Erro ao tentar logar");
+                //Log.Save("Erro ao tentar logar");
             }
 
 
@@ -70,7 +72,7 @@ namespace Ambev
             if (result)
             {
                 MessageBox.Show("Token correto");
-                Log.Save("Token correto");
+              //  Log.Save("Token correto");
             }
             else if (txtToken.Text == Config.tokenMemory)
             {
@@ -80,13 +82,13 @@ namespace Ambev
                 if (teste)
                 {
                     MessageBox.Show("Token correto");
-                    Log.Save("Token renovado com successo");
+                    //Log.Save("Token renovado com successo");
                 }
             }
             else
             {
                 MessageBox.Show("Erro");
-                Log.Save("Token incorreto");
+              //  Log.Save("Token incorreto");
             }
         }
     }

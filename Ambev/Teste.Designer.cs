@@ -42,41 +42,46 @@
             // 
             // txtUser
             // 
-            txtUser.Location = new Point(183, 69);
+            txtUser.Location = new Point(229, 86);
+            txtUser.Margin = new Padding(4, 4, 4, 4);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(232, 27);
+            txtUser.Size = new Size(289, 31);
             txtUser.TabIndex = 0;
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(183, 123);
+            txtSenha.Location = new Point(229, 154);
+            txtSenha.Margin = new Padding(4, 4, 4, 4);
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(232, 27);
+            txtSenha.Size = new Size(289, 31);
             txtSenha.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(105, 69);
+            label1.Location = new Point(131, 86);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(38, 20);
+            label1.Size = new Size(47, 25);
             label1.TabIndex = 2;
             label1.Text = "User";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(95, 126);
+            label2.Location = new Point(119, 158);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(49, 20);
+            label2.Size = new Size(60, 25);
             label2.TabIndex = 3;
             label2.Text = "Senha";
             // 
             // btnVerificar
             // 
-            btnVerificar.Location = new Point(451, 79);
+            btnVerificar.Location = new Point(564, 99);
+            btnVerificar.Margin = new Padding(4, 4, 4, 4);
             btnVerificar.Name = "btnVerificar";
-            btnVerificar.Size = new Size(155, 52);
+            btnVerificar.Size = new Size(194, 65);
             btnVerificar.TabIndex = 4;
             btnVerificar.Text = "Verificar";
             btnVerificar.UseVisualStyleBackColor = true;
@@ -84,9 +89,10 @@
             // 
             // btnHandshake
             // 
-            btnHandshake.Location = new Point(95, 362);
+            btnHandshake.Location = new Point(55, 452);
+            btnHandshake.Margin = new Padding(4, 4, 4, 4);
             btnHandshake.Name = "btnHandshake";
-            btnHandshake.Size = new Size(125, 43);
+            btnHandshake.Size = new Size(156, 54);
             btnHandshake.TabIndex = 5;
             btnHandshake.Text = "Handshake";
             btnHandshake.UseVisualStyleBackColor = true;
@@ -94,9 +100,10 @@
             // 
             // btnAccess
             // 
-            btnAccess.Location = new Point(616, 362);
+            btnAccess.Location = new Point(770, 452);
+            btnAccess.Margin = new Padding(4, 4, 4, 4);
             btnAccess.Name = "btnAccess";
-            btnAccess.Size = new Size(116, 43);
+            btnAccess.Size = new Size(145, 54);
             btnAccess.TabIndex = 6;
             btnAccess.Text = "AccessTest";
             btnAccess.UseVisualStyleBackColor = true;
@@ -104,33 +111,36 @@
             // 
             // txtToken
             // 
-            txtToken.Location = new Point(289, 370);
+            txtToken.Location = new Point(361, 462);
+            txtToken.Margin = new Padding(4, 4, 4, 4);
             txtToken.Name = "txtToken";
-            txtToken.Size = new Size(305, 27);
+            txtToken.Size = new Size(380, 31);
             txtToken.TabIndex = 7;
             // 
             // txtTk
             // 
-            txtTk.Location = new Point(183, 191);
+            txtTk.Location = new Point(229, 239);
+            txtTk.Margin = new Padding(4, 4, 4, 4);
             txtTk.Name = "txtTk";
-            txtTk.Size = new Size(392, 27);
+            txtTk.Size = new Size(489, 31);
             txtTk.TabIndex = 8;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(95, 194);
+            label3.Location = new Point(119, 242);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(48, 20);
+            label3.Size = new Size(58, 25);
             label3.TabIndex = 9;
             label3.Text = "Token";
             label3.TextAlign = ContentAlignment.TopCenter;
             // 
             // Teste
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(769, 450);
+            ClientSize = new Size(961, 562);
             Controls.Add(label3);
             Controls.Add(txtTk);
             Controls.Add(txtToken);
@@ -141,6 +151,7 @@
             Controls.Add(label1);
             Controls.Add(txtSenha);
             Controls.Add(txtUser);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "Teste";
             Text = "Form1";
             ResumeLayout(false);

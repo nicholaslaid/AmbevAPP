@@ -1,5 +1,6 @@
 ﻿using Ambev.Global;
 using Ambev.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,21 @@ namespace Ambev.Api
 
         public string GetToken(string user, string password)
         {
-           
+
+            Cripto cripto = new Cripto();
+
+            string usuario = cripto.EncryptTripleDES(user);
+            string senha = cripto.EncryptTripleDES(password);
+
+            Config.token = string.Empty;
+
             ApiBase api = new ApiBase();
 
-            Result response = api.GetComand("Ambev/GetToken?user=" + user + "&password=" + password);
+            Result response = api.GetComand("Ambev/GetToken?user=" + usuario + "&password=" + senha);
 
             if (response.success)
             {
-                Config.token = response.data;
+                Config.token = cripto.DecryptTrypleDES(response.data);
             }
 
             return Config.token;
@@ -33,8 +41,8 @@ namespace Ambev.Api
 
 
             Result response = api.GetComand("Ambev/Handshake");
-             
-            if(response.success)
+
+            if (response.success)
             {
                 result = true;
             }
@@ -44,13 +52,17 @@ namespace Ambev.Api
 
         public bool AccessTest(string token)
         {
+            Cripto cripto = new Cripto();
+
+            string tk = cripto.EncryptTripleDES(token);
+
             ApiBase api = new ApiBase();
 
-            Result result = api.GetComand("Ambev/AccessTest?token=" + token);
+            Result result = api.GetComand("Ambev/AccessTest?token=" + tk);
 
             bool resultado = false;
 
-            if(result.success)
+            if (result.success)
             {
                 resultado = true;
             }

@@ -10,22 +10,38 @@ namespace Ambev.Global
     public class Log
     {
 
-        public static void Save(string msg)
+        public static void Add(LogType type, LogSave save, string message)
         {
-            //verifica se a pasta existe 
-            if (!Directory.Exists(Config.logFolder))
+            try
             {
-                Directory.CreateDirectory(Config.logFolder);
-            }
-            //verifica se o arquivo existe
-            if (!File.Exists(Config.logName))
-            {
+                if (type == LogType.success && !Convert.ToBoolean(Config.logSuccessEnabled))
+                    return;
 
-                File.Create(Config.logName).Dispose();
+                else if (type == LogType.info && !Convert.ToBoolean(Config.logInfoEnabled))
+                    return;
+
+                else if (type == LogType.error && !Convert.ToBoolean(Config.logErrorEnabled))
+                    return;
+
+                else
+                {
+                    SaveLogToFile(type, message);
+                }
             }
-            //grava o log no arquivo
-            File.AppendAllText(Config.logPath, DateTime.Now.ToString("dd/MM/yyy HH:mm:ss")
-                + " - " + msg + Environment.NewLine);
+            catch
+            { }
+        }
+
+
+        private static void SaveLogToFile(LogType type, string message)
+        {
+            if (!Directory.Exists(Config.logFolder))
+                Directory.CreateDirectory(Config.logFolder);
+
+            if (!File.Exists(Config.logPath))
+                File.Create(Config.logPath).Dispose();
+
+            File.AppendAllText(Config.logPath, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + " - " + type.ToString() + ": " + message + Environment.NewLine);
         }
 
     }
