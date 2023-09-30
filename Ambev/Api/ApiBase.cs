@@ -26,5 +26,35 @@ namespace Ambev.Api
             return result;
 
         }
+
+        public Result PostComand(string url, string parameters)
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+
+            HttpContent content = new StringContent(parameters, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.PostAsync(Config.apiBaseUrl + url, content).Result;
+            string responseString = response.Content.ReadAsStringAsync().Result;
+
+            Result result = JsonConvert.DeserializeObject<Result>(responseString);
+
+            return result;
+        }
+
+
+        public Result DeleteComand(string url)
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+
+            HttpResponseMessage response = client.DeleteAsync(Config.apiBaseUrl + url).Result;
+            string responseString = response.Content.ReadAsStringAsync().Result;
+
+            Result result = JsonConvert.DeserializeObject<Result>(responseString);
+
+            return result;
+
+
+        }
     }
 }
