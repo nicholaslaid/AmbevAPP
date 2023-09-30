@@ -10,10 +10,12 @@ namespace Ambev
         [STAThread]
         static void Main()
         {
+
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Log.Save("Aplicação inicializada");
+            Log.Add(LogType.success, "Aplicação inicializada");
             Application.Run(new Teste());
           
         }

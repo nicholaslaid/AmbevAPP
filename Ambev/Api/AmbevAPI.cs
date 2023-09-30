@@ -17,10 +17,19 @@ namespace Ambev.Api
 
             Cripto cripto = new Cripto();
 
-            string usuario = cripto.EncryptTripleDES(user);
-            string senha = cripto.EncryptTripleDES(password);
+            string usuario = string.Empty;
 
-            Config.token = string.Empty;
+            string senha = string.Empty;
+            try
+            {
+                usuario = cripto.EncryptTripleDES(user);
+                senha = cripto.EncryptTripleDES(password);
+            }catch(Exception ex)
+            {
+                Log.Add(LogType.error, "Erro ao descriptografar");
+            }
+
+                Config.token = string.Empty;
 
             ApiBase api = new ApiBase();
 
@@ -53,9 +62,15 @@ namespace Ambev.Api
         public bool AccessTest(string token)
         {
             Cripto cripto = new Cripto();
-
-            string tk = cripto.EncryptTripleDES(token);
-
+            string tk = string.Empty;
+            try
+            {
+               tk = cripto.EncryptTripleDES(token);
+            }
+            catch(Exception e)
+            {
+                Log.Add(LogType.error, "Erro ao descriptografar");
+            }
             ApiBase api = new ApiBase();
 
             Result result = api.GetComand("Ambev/AccessTest?token=" + tk);

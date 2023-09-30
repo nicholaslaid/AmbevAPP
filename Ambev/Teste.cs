@@ -33,13 +33,13 @@ namespace Ambev
             if (txtTk.Text.Length > 1)
             {
                 MessageBox.Show("Logado");
-               // Log.Save("Logado");
+                Log.Add(LogType.success, "Logado");
 
             }
             else
             {
                 MessageBox.Show("Erro ao tentar logar");
-                //Log.Save("Erro ao tentar logar");
+                Log.Add(LogType.error, "Erro ao tentar logar");
             }
 
 
@@ -72,7 +72,7 @@ namespace Ambev
             if (result)
             {
                 MessageBox.Show("Token correto");
-              //  Log.Save("Token correto");
+                Log.Add(LogType.success, "Token correto");
             }
             else if (txtToken.Text == Config.tokenMemory)
             {
@@ -82,13 +82,13 @@ namespace Ambev
                 if (teste)
                 {
                     MessageBox.Show("Token correto");
-                    //Log.Save("Token renovado com successo");
+                    Log.Add(LogType.success, "Token renovado com successo");
                 }
             }
             else
             {
                 MessageBox.Show("Erro");
-              //  Log.Save("Token incorreto");
+                Log.Add(LogType.error, "erro no token");
             }
         }
     }
