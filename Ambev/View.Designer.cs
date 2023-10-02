@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgvAmbev = new DataGridView();
+            btnAdd = new Button();
             Identificador = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
             Marca = new DataGridViewTextBoxColumn();
@@ -36,24 +37,36 @@
             Volume = new DataGridViewTextBoxColumn();
             Frasco = new DataGridViewTextBoxColumn();
             Delete = new DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAmbev).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvAmbev
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Identificador, Nome, Marca, Tipo, Volume, Frasco, Delete });
-            dataGridView1.Location = new Point(83, 24);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(678, 385);
-            dataGridView1.TabIndex = 0;
+            dgvAmbev.AllowUserToAddRows = false;
+            dgvAmbev.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAmbev.Columns.AddRange(new DataGridViewColumn[] { Identificador, Nome, Marca, Tipo, Volume, Frasco, Delete });
+            dgvAmbev.Location = new Point(83, 24);
+            dgvAmbev.Name = "dgvAmbev";
+            dgvAmbev.ReadOnly = true;
+            dgvAmbev.RowHeadersWidth = 51;
+            dgvAmbev.RowTemplate.Height = 29;
+            dgvAmbev.Size = new Size(678, 385);
+            dgvAmbev.TabIndex = 0;
+            dgvAmbev.CellClick += dgvAmbev_CellClick;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(789, 368);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(94, 41);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "Adicionar";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // Identificador
             // 
+            Identificador.DataPropertyName = "id";
             Identificador.HeaderText = "Identificador";
             Identificador.MinimumWidth = 6;
             Identificador.Name = "Identificador";
@@ -63,6 +76,7 @@
             // 
             // Nome
             // 
+            Nome.DataPropertyName = "nome";
             Nome.HeaderText = "Nome";
             Nome.MinimumWidth = 6;
             Nome.Name = "Nome";
@@ -72,6 +86,7 @@
             // 
             // Marca
             // 
+            Marca.DataPropertyName = "marca";
             Marca.HeaderText = "Marca";
             Marca.MinimumWidth = 6;
             Marca.Name = "Marca";
@@ -80,6 +95,7 @@
             // 
             // Tipo
             // 
+            Tipo.DataPropertyName = "tipo";
             Tipo.HeaderText = "Tipo";
             Tipo.MinimumWidth = 6;
             Tipo.Name = "Tipo";
@@ -88,6 +104,7 @@
             // 
             // Volume
             // 
+            Volume.DataPropertyName = "volume";
             Volume.HeaderText = "Volume";
             Volume.MinimumWidth = 6;
             Volume.Name = "Volume";
@@ -96,6 +113,7 @@
             // 
             // Frasco
             // 
+            Frasco.DataPropertyName = "frasco";
             Frasco.HeaderText = "Frasco";
             Frasco.MinimumWidth = 6;
             Frasco.Name = "Frasco";
@@ -104,6 +122,7 @@
             // 
             // Delete
             // 
+            Delete.DataPropertyName = "Delete";
             Delete.HeaderText = "Delete";
             Delete.MinimumWidth = 6;
             Delete.Name = "Delete";
@@ -116,16 +135,19 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnAdd);
+            Controls.Add(dgvAmbev);
             Name = "View";
             Text = "View";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += View_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvAmbev).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvAmbev;
+        private Button btnAdd;
         private DataGridViewTextBoxColumn Identificador;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn Marca;

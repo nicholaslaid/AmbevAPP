@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ambev.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -14,8 +15,8 @@ namespace Ambev.Global
         public static string token = string.Empty;
         public static string tokenMemory = string.Empty;
 
+        public static Produtos tempProd = new Produtos();
 
-    
         public static string key = "3fsdRW24366#$2dAsdfgY3412SD25&aa@!!@@kjsdpi32489mcs@dsf@D34F5¨H";
 
       

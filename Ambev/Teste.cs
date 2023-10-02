@@ -73,16 +73,22 @@ namespace Ambev
             {
                 MessageBox.Show("Token correto");
                 Log.Add(LogType.success, "Token correto");
+                View view = new View();
+                view.ShowDialog();
             }
             else if (txtToken.Text == Config.tokenMemory)
             {
                 string token = ambev.GetToken("admin", "admin");
+                
                 bool teste = ambev.AccessTest(token);
 
                 if (teste)
                 {
+                    Config.tokenMemory = token;
                     MessageBox.Show("Token correto");
                     Log.Add(LogType.success, "Token renovado com successo");
+                    View view = new View();
+                    view.ShowDialog();
                 }
             }
             else
