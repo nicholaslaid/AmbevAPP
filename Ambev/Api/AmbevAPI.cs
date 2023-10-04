@@ -90,10 +90,15 @@ namespace Ambev.Api
         {
             ApiBase api = new ApiBase();
 
-            string parameters = JsonConvert.SerializeObject(token);
-            string parameter = JsonConvert.SerializeObject(produtos);
+            Request request = new Request();
 
-            Result result = api.PostComand("Ambev/Add?token=", parameters + "&products=" + parameter);
+            request.produtos = produtos;
+            request.token = Config.token;
+
+            string parameters = JsonConvert.SerializeObject(request);
+
+            Result result = api.PostComand("Ambev/Add", parameters);
+            
 
             return result;
         }
@@ -105,7 +110,7 @@ namespace Ambev.Api
 
             Result response = new Result();
 
-                response = api.GetComand("Ambev/GetAll?token=" + token);
+            response = api.GetComand("Ambev/GetAll?token=" + token);
 
             if (response.success == true)
             {

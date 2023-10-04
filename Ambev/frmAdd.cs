@@ -35,7 +35,7 @@ namespace Ambev
 
             api.Add(Config.tokenMemory, produtos);
             Close();
-
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

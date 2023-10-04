@@ -23,13 +23,14 @@ namespace Ambev
         {
             frmAdd add = new frmAdd();
             add.ShowDialog();
+            LoadAmbev();
         }
 
         private void LoadAmbev()
         {
             AmbevAPI api = new AmbevAPI();
 
-            api.GetAllProdutos(Config.tokenMemory);
+            dgvAmbev.DataSource = api.GetAllProdutos(Config.tokenMemory);
 
 
 

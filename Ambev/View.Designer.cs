@@ -36,7 +36,7 @@
             Tipo = new DataGridViewTextBoxColumn();
             Volume = new DataGridViewTextBoxColumn();
             Frasco = new DataGridViewTextBoxColumn();
-            Delete = new DataGridViewButtonColumn();
+            Deletar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvAmbev).BeginInit();
             SuspendLayout();
             // 
@@ -44,19 +44,19 @@
             // 
             dgvAmbev.AllowUserToAddRows = false;
             dgvAmbev.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAmbev.Columns.AddRange(new DataGridViewColumn[] { Identificador, Nome, Marca, Tipo, Volume, Frasco, Delete });
+            dgvAmbev.Columns.AddRange(new DataGridViewColumn[] { Identificador, Nome, Marca, Tipo, Volume, Frasco, Deletar });
             dgvAmbev.Location = new Point(83, 24);
             dgvAmbev.Name = "dgvAmbev";
             dgvAmbev.ReadOnly = true;
             dgvAmbev.RowHeadersWidth = 51;
             dgvAmbev.RowTemplate.Height = 29;
-            dgvAmbev.Size = new Size(678, 385);
+            dgvAmbev.Size = new Size(804, 385);
             dgvAmbev.TabIndex = 0;
             dgvAmbev.CellClick += dgvAmbev_CellClick;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(789, 368);
+            btnAdd.Location = new Point(993, 351);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 41);
             btnAdd.TabIndex = 1;
@@ -81,7 +81,6 @@
             Nome.MinimumWidth = 6;
             Nome.Name = "Nome";
             Nome.ReadOnly = true;
-            Nome.Visible = false;
             Nome.Width = 125;
             // 
             // Marca
@@ -120,21 +119,22 @@
             Frasco.ReadOnly = true;
             Frasco.Width = 125;
             // 
-            // Delete
+            // Deletar
             // 
-            Delete.DataPropertyName = "Delete";
-            Delete.HeaderText = "Delete";
-            Delete.MinimumWidth = 6;
-            Delete.Name = "Delete";
-            Delete.ReadOnly = true;
-            Delete.Text = "Delete";
-            Delete.Width = 125;
+            Deletar.DataPropertyName = "Deletar";
+            Deletar.HeaderText = "Deletar";
+            Deletar.MinimumWidth = 6;
+            Deletar.Name = "Deletar";
+            Deletar.ReadOnly = true;
+            Deletar.Text = "Deletar";
+            Deletar.ToolTipText = "Deletar";
+            Deletar.Width = 125;
             // 
             // View
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(910, 450);
+            ClientSize = new Size(1177, 450);
             Controls.Add(btnAdd);
             Controls.Add(dgvAmbev);
             Name = "View";
@@ -154,6 +154,6 @@
         private DataGridViewTextBoxColumn Tipo;
         private DataGridViewTextBoxColumn Volume;
         private DataGridViewTextBoxColumn Frasco;
-        private DataGridViewButtonColumn Delete;
+        private DataGridViewButtonColumn Deletar;
     }
 }

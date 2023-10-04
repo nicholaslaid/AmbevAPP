@@ -9,5 +9,7 @@ namespace Ambev.Models
     public class Request
     {
         public string token { get; set; }
+
+        public Produtos produtos { get; set; }
     }
 }
