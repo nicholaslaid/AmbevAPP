@@ -25,10 +25,9 @@ namespace Ambev
 
             string result = ambev.GetToken(user, senha);
 
-            Config.tokenMemory = result;
-
             txtTk.Text = result;
 
+            Config.tokenMemory = result;
 
             if (txtTk.Text.Length > 1)
             {
@@ -71,10 +70,11 @@ namespace Ambev
 
             if (result)
             {
+
                 MessageBox.Show("Token correto");
                 Log.Add(LogType.success, "Token correto");
-                View view = new View();
-                view.ShowDialog();
+             //   View view = new View();
+              //  view.ShowDialog();
             }
             else if (txtToken.Text == Config.tokenMemory)
             {
@@ -84,11 +84,11 @@ namespace Ambev
 
                 if (teste)
                 {
-                    
+  
                     MessageBox.Show("Token correto");
                     Log.Add(LogType.success, "Token renovado com successo");
-                    View view = new View();
-                    view.ShowDialog();
+                  //  View view = new View();
+                   // view.ShowDialog();
                 }
             }
             else

@@ -31,9 +31,9 @@ namespace Ambev
             produtos.volume = Convert.ToInt32(txtVol.Text);
             produtos.frasco = txtFrasco.Text;
 
-
-
+            
             api.Add(Config.token, produtos);
+  
             Close();
             
         }

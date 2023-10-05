@@ -14,6 +14,7 @@ namespace Ambev.Global
          
         public static string token = string.Empty;
         public static string tokenMemory = string.Empty;
+        public static string newToken = string.Empty;
 
         public static Produtos tempProd = new Produtos();
 

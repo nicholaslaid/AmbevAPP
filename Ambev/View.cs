@@ -1,5 +1,6 @@
 ﻿using Ambev.Api;
 using Ambev.Global;
+using Ambev.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,10 +31,9 @@ namespace Ambev
         {
             AmbevAPI api = new AmbevAPI();
 
+            
             dgvAmbev.DataSource = api.GetAllProdutos(Config.token);
-
-
-
+      
         }
 
         private void View_Load(object sender, EventArgs e)
@@ -57,18 +57,19 @@ namespace Ambev
 
                     if (dialogResult == DialogResult.Yes)
                     {
+                     
+                           bool response =  api.Delete(Config.token, id);
 
-                        bool response = api.Delete(Config.token, id);
-
-                        if (response)
-                        {
-                            LoadAmbev();
+                            if (response)
+                            {
+                                LoadAmbev();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao tentar excluir");
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Erro ao tentar excluir");
-                        }
-                    }
+                       
                 }
             }
             catch (Exception ex)
