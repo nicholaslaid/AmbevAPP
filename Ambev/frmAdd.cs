@@ -8,12 +8,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
 using System.Windows.Forms;
 
 namespace Ambev
 {
-    public partial class frmAdd : Form
+    public partial class frmAdd : Form 
     {
         public frmAdd()
         {
@@ -33,7 +33,7 @@ namespace Ambev
 
 
 
-            api.Add(Config.tokenMemory, produtos);
+            api.Add(Config.token, produtos);
             Close();
             
         }

@@ -30,7 +30,7 @@ namespace Ambev
         {
             AmbevAPI api = new AmbevAPI();
 
-            dgvAmbev.DataSource = api.GetAllProdutos(Config.tokenMemory);
+            dgvAmbev.DataSource = api.GetAllProdutos(Config.token);
 
 
 
@@ -58,7 +58,7 @@ namespace Ambev
                     if (dialogResult == DialogResult.Yes)
                     {
 
-                        bool response = api.Delete(Config.tokenMemory, id);
+                        bool response = api.Delete(Config.token, id);
 
                         if (response)
                         {

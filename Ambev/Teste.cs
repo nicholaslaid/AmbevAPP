@@ -84,7 +84,7 @@ namespace Ambev
 
                 if (teste)
                 {
-                    Config.tokenMemory = token;
+                    
                     MessageBox.Show("Token correto");
                     Log.Add(LogType.success, "Token renovado com successo");
                     View view = new View();

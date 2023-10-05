@@ -10,7 +10,7 @@ namespace Ambev.Global
 {
     public class Config
     {
-        public static string apiBaseUrl = "https://localhost:7058/api/";
+        public static string apiBaseUrl = "http://localhost:5193/api/";
          
         public static string token = string.Empty;
         public static string tokenMemory = string.Empty;
