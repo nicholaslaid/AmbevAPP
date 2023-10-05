@@ -31,8 +31,44 @@ namespace Ambev
             produtos.volume = Convert.ToInt32(txtVol.Text);
             produtos.frasco = txtFrasco.Text;
 
-            
-            api.Add(Config.token, produtos);
+
+            bool result = api.AccessTest(Config.token);
+
+            if (result)
+            {
+                MessageBox.Show("Token correto");
+                api.Add(Config.token, produtos);
+                Log.Add(LogType.success, "Token correto");
+
+            }
+            else if (Config.token == Config.tokenMemory)
+            {
+                string token = api.GetToken(Config.user, Config.senha);
+
+                bool teste = api.AccessTest(token);
+
+                if (teste)
+                {
+                    Config.tokenMemory = token;
+                    
+                    MessageBox.Show("Token correto");
+
+                    api.Add(Config.token, produtos);
+
+                    Log.Add(LogType.success, "Token renovado com successo");
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Erro");
+                Log.Add(LogType.error, "erro no token");
+            }
+
+
+
+
+
   
             Close();
             

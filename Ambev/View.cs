@@ -29,10 +29,42 @@ namespace Ambev
 
         private void LoadAmbev()
         {
+
             AmbevAPI api = new AmbevAPI();
 
-            
-            dgvAmbev.DataSource = api.GetAllProdutos(Config.token);
+            bool result = api.AccessTest(Config.token);
+
+            if (result)
+            {
+
+                MessageBox.Show("Token correto");
+                dgvAmbev.DataSource = api.GetAllProdutos(Config.token);
+                Log.Add(LogType.success, "Token correto");
+
+            }
+            else if (Config.token == Config.tokenMemory)
+            {
+                string token = api.GetToken(Config.user, Config.senha);
+
+                bool teste = api.AccessTest(token);
+
+                if (teste)
+                {
+                    Config.tokenMemory = token;
+                    dgvAmbev.DataSource = api.GetAllProdutos(Config.token);
+                    MessageBox.Show("Token correto");
+                    Log.Add(LogType.success, "Token renovado com successo");
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Erro");
+                Log.Add(LogType.error, "erro no token");
+            }
+
+
+    
       
         }
 
@@ -57,10 +89,46 @@ namespace Ambev
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                     
-                           bool response =  api.Delete(Config.token, id);
 
-                            if (response)
+                        bool result = api.AccessTest(Config.token);
+
+                        if (result)
+                        {
+
+                            MessageBox.Show("Token correto");
+                            api.Delete(Config.token, id);
+                            Log.Add(LogType.success, "Token correto");
+
+                        }
+                        else if (Config.token == Config.tokenMemory)
+                        {
+                            string token = api.GetToken(Config.user, Config.senha);
+
+                            bool teste = api.AccessTest(token);
+
+                            if (teste)
+                            {
+                                result = true;
+
+                                Config.tokenMemory = token;
+                                
+                                MessageBox.Show("Token correto");
+
+                                api.Delete(Config.token, id);
+
+                                Log.Add(LogType.success, "Token renovado com successo");
+
+                            }
+                        }
+                        else
+                        {
+                            result = false;
+                            MessageBox.Show("Erro");
+                            Log.Add(LogType.error, "erro no token");
+                        }
+
+
+                            if (result)
                             {
                                 LoadAmbev();
                             }

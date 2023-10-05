@@ -19,21 +19,23 @@ namespace Ambev
 
             AmbevAPI ambev = new AmbevAPI();
 
-            String user = txtUser.Text;
-            String senha = txtSenha.Text;
 
+            Config.user = txtUser.Text;
+            Config.senha = txtSenha.Text;
 
-            string result = ambev.GetToken(user, senha);
+           
+
+            string result = ambev.GetToken(Config.user, Config.senha);
 
             txtTk.Text = result;
 
             Config.tokenMemory = result;
-
-            if (txtTk.Text.Length > 1)
+            if (result.Length > 1)
             {
-                MessageBox.Show("Logado");
-                Log.Add(LogType.success, "Logado");
+                View view = new View();
+                view.ShowDialog();
 
+               
             }
             else
             {
@@ -66,29 +68,27 @@ namespace Ambev
         {
             AmbevAPI ambev = new AmbevAPI();
 
-            bool result = ambev.AccessTest(txtToken.Text);
+            bool result = ambev.AccessTest(Config.token);
 
             if (result)
             {
 
                 MessageBox.Show("Token correto");
                 Log.Add(LogType.success, "Token correto");
-             //   View view = new View();
-              //  view.ShowDialog();
+               
             }
-            else if (txtToken.Text == Config.tokenMemory)
+            else if (Config.token == Config.tokenMemory)
             {
-                string token = ambev.GetToken("admin", "admin");
-                
+                string token = ambev.GetToken(Config.user, Config.senha);
+
                 bool teste = ambev.AccessTest(token);
 
                 if (teste)
                 {
-  
+
                     MessageBox.Show("Token correto");
                     Log.Add(LogType.success, "Token renovado com successo");
-                  //  View view = new View();
-                   // view.ShowDialog();
+                   
                 }
             }
             else
@@ -97,5 +97,11 @@ namespace Ambev
                 Log.Add(LogType.error, "erro no token");
             }
         }
+
+        private void Teste_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
