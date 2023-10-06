@@ -92,10 +92,12 @@ namespace Ambev.Api
 
             Request request = new Request();
 
+            Cripto cripto = new Cripto();
+
             request.produtos = produtos;
             request.token = Config.token;
 
-            string parameters = JsonConvert.SerializeObject(request);
+            string parameters = cripto.EncryptTripleDES(JsonConvert.SerializeObject(request));
 
             Result result = api.PostComand("Ambev/Add", parameters);
             
@@ -105,6 +107,7 @@ namespace Ambev.Api
 
         public List<Produtos> GetAllProdutos(string token)
         {
+            Cripto cripto = new Cripto();
             List<Produtos> result = new List<Produtos>();
             ApiBase api = new ApiBase();
 
@@ -114,7 +117,7 @@ namespace Ambev.Api
 
             if (response.success == true)
             {
-                result = JsonConvert.DeserializeObject<List<Produtos>>(response.data);
+                //result = cripto.DecryptTrypleDES(JsonConvert.DeserializeObject<List<Produtos>>(response.data));
             }
 
             return result;

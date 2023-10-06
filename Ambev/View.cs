@@ -116,7 +116,7 @@ namespace Ambev
 
                                 api.Delete(Config.token, id);
 
-                                Log.Add(LogType.success, "Token renovado com successo");
+                                Log.Add(LogType.success, "Token renovado com successo"); 
 
                             }
                         }
