@@ -31,6 +31,7 @@
             dgvAmbev = new DataGridView();
             btnAdd = new Button();
             id = new DataGridViewTextBoxColumn();
+            Valor_unitario = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
             Marca = new DataGridViewTextBoxColumn();
             Tipo = new DataGridViewTextBoxColumn();
@@ -44,23 +45,21 @@
             // 
             dgvAmbev.AllowUserToAddRows = false;
             dgvAmbev.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAmbev.Columns.AddRange(new DataGridViewColumn[] { id, Nome, Marca, Tipo, Volume, Frasco, Deletar });
-            dgvAmbev.Location = new Point(73, 18);
-            dgvAmbev.Margin = new Padding(3, 2, 3, 2);
+            dgvAmbev.Columns.AddRange(new DataGridViewColumn[] { id, Valor_unitario, Nome, Marca, Tipo, Volume, Frasco, Deletar });
+            dgvAmbev.Location = new Point(35, 12);
             dgvAmbev.Name = "dgvAmbev";
             dgvAmbev.ReadOnly = true;
             dgvAmbev.RowHeadersWidth = 51;
             dgvAmbev.RowTemplate.Height = 29;
-            dgvAmbev.Size = new Size(704, 289);
+            dgvAmbev.Size = new Size(928, 385);
             dgvAmbev.TabIndex = 0;
             dgvAmbev.CellClick += dgvAmbev_CellClick;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(869, 263);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Location = new Point(1038, 321);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(82, 31);
+            btnAdd.Size = new Size(94, 41);
             btnAdd.TabIndex = 1;
             btnAdd.Text = "Adicionar";
             btnAdd.UseVisualStyleBackColor = true;
@@ -75,6 +74,15 @@
             id.ReadOnly = true;
             id.Visible = false;
             id.Width = 125;
+            // 
+            // Valor_unitario
+            // 
+            Valor_unitario.DataPropertyName = "valor_unitario";
+            Valor_unitario.HeaderText = "Valor_unitario";
+            Valor_unitario.MinimumWidth = 6;
+            Valor_unitario.Name = "Valor_unitario";
+            Valor_unitario.ReadOnly = true;
+            Valor_unitario.Width = 125;
             // 
             // Nome
             // 
@@ -134,12 +142,11 @@
             // 
             // View
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1030, 338);
+            ClientSize = new Size(1177, 451);
             Controls.Add(btnAdd);
             Controls.Add(dgvAmbev);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "View";
             Text = "View";
             Load += View_Load;
@@ -152,6 +159,7 @@
         private DataGridView dgvAmbev;
         private Button btnAdd;
         private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn Valor_unitario;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn Marca;
         private DataGridViewTextBoxColumn Tipo;

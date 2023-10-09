@@ -8,12 +8,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Ambev
 {
-    public partial class frmAdd : Form 
+    public partial class frmAdd : Form
     {
         public frmAdd()
         {
@@ -30,7 +30,7 @@ namespace Ambev
             produtos.tipo = txtTipo.Text;
             produtos.volume = Convert.ToInt32(txtVol.Text);
             produtos.frasco = txtFrasco.Text;
-
+            produtos.valor_unitario = Convert.ToDouble(txtValue.Text);
 
             bool result = api.AccessTest(Config.token);
 
@@ -50,7 +50,7 @@ namespace Ambev
                 if (teste)
                 {
                     Config.tokenMemory = token;
-                    
+
                     MessageBox.Show("Token correto");
 
                     api.Add(Config.token, produtos);
@@ -69,9 +69,9 @@ namespace Ambev
 
 
 
-  
+
             Close();
-            
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -81,8 +81,21 @@ namespace Ambev
 
         private void frmAdd_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
-            
+
+
+        }
+
+        private void frmAdd_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void txtTipo_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

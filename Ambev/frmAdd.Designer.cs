@@ -42,6 +42,8 @@
             label6 = new Label();
             btnAdd = new Button();
             btnCancel = new Button();
+            label7 = new Label();
+            txtValue = new TextBox();
             SuspendLayout();
             // 
             // txtId
@@ -86,6 +88,7 @@
             txtTipo.Name = "txtTipo";
             txtTipo.Size = new Size(161, 27);
             txtTipo.TabIndex = 5;
+            txtTipo.TextChanged += txtTipo_TextChanged;
             // 
             // label1
             // 
@@ -140,6 +143,7 @@
             label6.Size = new Size(39, 20);
             label6.TabIndex = 11;
             label6.Text = "Tipo";
+            label6.Click += label6_Click;
             // 
             // btnAdd
             // 
@@ -161,11 +165,29 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(125, 407);
+            label7.Name = "label7";
+            label7.Size = new Size(43, 20);
+            label7.TabIndex = 14;
+            label7.Text = "Valor";
+            // 
+            // txtValue
+            // 
+            txtValue.Location = new Point(236, 407);
+            txtValue.Name = "txtValue";
+            txtValue.Size = new Size(161, 27);
+            txtValue.TabIndex = 15;
+            // 
             // frmAdd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtValue);
+            Controls.Add(label7);
             Controls.Add(btnCancel);
             Controls.Add(btnAdd);
             Controls.Add(label6);
@@ -183,6 +205,7 @@
             Name = "frmAdd";
             Text = "frmAdd";
             FormClosing += frmAdd_FormClosing;
+            Load += frmAdd_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -203,5 +226,7 @@
         private Label label6;
         private Button btnAdd;
         private Button btnCancel;
+        private Label label7;
+        private TextBox txtValue;
     }
 }

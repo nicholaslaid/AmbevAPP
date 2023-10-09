@@ -64,8 +64,8 @@ namespace Ambev
             }
 
 
-    
-      
+
+
         }
 
         private void View_Load(object sender, EventArgs e)
@@ -111,12 +111,12 @@ namespace Ambev
                                 result = true;
 
                                 Config.tokenMemory = token;
-                                
+
                                 MessageBox.Show("Token correto");
 
                                 api.Delete(Config.token, id);
 
-                                Log.Add(LogType.success, "Token renovado com successo"); 
+                                Log.Add(LogType.success, "Token renovado com successo");
 
                             }
                         }
@@ -128,16 +128,16 @@ namespace Ambev
                         }
 
 
-                            if (result)
-                            {
-                                LoadAmbev();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Erro ao tentar excluir");
-                            }
+                        if (result)
+                        {
+                            LoadAmbev();
                         }
-                       
+                        else
+                        {
+                            MessageBox.Show("Erro ao tentar excluir");
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)

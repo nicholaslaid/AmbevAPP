@@ -19,5 +19,7 @@ namespace Ambev.Models
 
         public DateTime data { get; set; }
         public string frasco { get; set; }
+
+        public double valor_unitario { get; set; }
     }
 }
