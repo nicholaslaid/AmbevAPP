@@ -10,6 +10,6 @@ namespace Ambev.Models
     {
         public string token { get; set; }
 
-        public Produtos produtos { get; set; }
+        public string data { get; set; }
     }
 }

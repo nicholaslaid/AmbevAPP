@@ -32,7 +32,7 @@ namespace Ambev.Api
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Accept", "application/json");
 
-            HttpContent content = new StringContent(parameters);
+            HttpContent content = new StringContent(parameters, Encoding.UTF8, "application/json");
             HttpResponseMessage response = client.PostAsync(Config.apiBaseUrl + url, content).Result;
             string responseString = response.Content.ReadAsStringAsync().Result;
 
