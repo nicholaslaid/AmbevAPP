@@ -36,9 +36,7 @@ namespace Ambev
 
             if (result)
             {
-                MessageBox.Show("Token correto");
                 api.Add(Config.token, produtos);
-                Log.Add(LogType.success, "Token correto");
 
             }
             else if (Config.token == Config.tokenMemory)
@@ -50,8 +48,6 @@ namespace Ambev
                 if (teste)
                 {
                     Config.tokenMemory = token;
-
-                    MessageBox.Show("Token correto");
 
                     api.Add(Config.token, produtos);
 

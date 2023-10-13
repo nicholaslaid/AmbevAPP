@@ -30,13 +30,13 @@
         {
             dgvVendas = new DataGridView();
             button1 = new Button();
+            btnDetalhes = new Button();
             id = new DataGridViewTextBoxColumn();
             dataVenda = new DataGridViewTextBoxColumn();
             Cliente = new DataGridViewTextBoxColumn();
             Vendedor = new DataGridViewTextBoxColumn();
             valorTotal = new DataGridViewTextBoxColumn();
             qtd_produtos = new DataGridViewTextBoxColumn();
-            Detalhes = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvVendas).BeginInit();
             SuspendLayout();
             // 
@@ -44,26 +44,36 @@
             // 
             dgvVendas.AllowUserToAddRows = false;
             dgvVendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVendas.Columns.AddRange(new DataGridViewColumn[] { id, dataVenda, Cliente, Vendedor, valorTotal, qtd_produtos, Detalhes });
-            dgvVendas.Location = new Point(95, 29);
+            dgvVendas.Columns.AddRange(new DataGridViewColumn[] { id, dataVenda, Cliente, Vendedor, valorTotal, qtd_produtos });
+            dgvVendas.Location = new Point(62, 27);
             dgvVendas.Name = "dgvVendas";
             dgvVendas.ReadOnly = true;
             dgvVendas.RowHeadersWidth = 51;
             dgvVendas.RowTemplate.Height = 29;
-            dgvVendas.Size = new Size(809, 260);
+            dgvVendas.Size = new Size(683, 260);
             dgvVendas.TabIndex = 0;
             dgvVendas.CellClick += dgvVendas_CellClick;
             dgvVendas.CellContentClick += dgvVendas_CellContentClick;
             // 
             // button1
             // 
-            button1.Location = new Point(502, 333);
+            button1.Location = new Point(172, 327);
             button1.Name = "button1";
-            button1.Size = new Size(107, 44);
+            button1.Size = new Size(171, 58);
             button1.TabIndex = 1;
             button1.Text = "Cancel";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // btnDetalhes
+            // 
+            btnDetalhes.Location = new Point(438, 327);
+            btnDetalhes.Name = "btnDetalhes";
+            btnDetalhes.Size = new Size(150, 58);
+            btnDetalhes.TabIndex = 2;
+            btnDetalhes.Text = "Detalhes";
+            btnDetalhes.UseVisualStyleBackColor = true;
+            btnDetalhes.Click += btnDetalhes_Click;
             // 
             // id
             // 
@@ -120,21 +130,12 @@
             qtd_produtos.ReadOnly = true;
             qtd_produtos.Width = 125;
             // 
-            // Detalhes
-            // 
-            Detalhes.DataPropertyName = "Detalhes";
-            Detalhes.HeaderText = "Detalhes";
-            Detalhes.MinimumWidth = 6;
-            Detalhes.Name = "Detalhes";
-            Detalhes.ReadOnly = true;
-            Detalhes.Text = "Detalhes";
-            Detalhes.Width = 125;
-            // 
             // VendasForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(986, 450);
+            ClientSize = new Size(807, 450);
+            Controls.Add(btnDetalhes);
             Controls.Add(button1);
             Controls.Add(dgvVendas);
             Name = "VendasForm";
@@ -148,12 +149,12 @@
 
         private DataGridView dgvVendas;
         private Button button1;
+        private Button btnDetalhes;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn dataVenda;
         private DataGridViewTextBoxColumn Cliente;
         private DataGridViewTextBoxColumn Vendedor;
         private DataGridViewTextBoxColumn valorTotal;
         private DataGridViewTextBoxColumn qtd_produtos;
-        private DataGridViewButtonColumn Detalhes;
     }
 }

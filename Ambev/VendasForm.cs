@@ -122,5 +122,11 @@ namespace Ambev
             catch (Exception ex)
             { }
         }
+
+        private void btnDetalhes_Click(object sender, EventArgs e)
+        {
+            FormVendaProdutos formVendaProdutos = new FormVendaProdutos();
+            formVendaProdutos.ShowDialog();
+        }
     }
 }

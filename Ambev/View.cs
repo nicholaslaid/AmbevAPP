@@ -37,7 +37,6 @@ namespace Ambev
             if (result)
             {
 
-                MessageBox.Show("Token correto");
                 dgvAmbev.DataSource = api.GetAllProdutos(Config.token);
                 Log.Add(LogType.success, "Token correto");
 
@@ -52,7 +51,6 @@ namespace Ambev
                 {
                     Config.tokenMemory = token;
                     dgvAmbev.DataSource = api.GetAllProdutos(Config.token);
-                    MessageBox.Show("Token correto");
                     Log.Add(LogType.success, "Token renovado com successo");
 
                 }
@@ -95,7 +93,6 @@ namespace Ambev
                         if (result)
                         {
 
-                            MessageBox.Show("Token correto");
                             api.Delete(Config.token, id);
                             Log.Add(LogType.success, "Token correto");
 
@@ -111,8 +108,6 @@ namespace Ambev
                                 result = true;
 
                                 Config.tokenMemory = token;
-
-                                MessageBox.Show("Token correto");
 
                                 api.Delete(Config.token, id);
 

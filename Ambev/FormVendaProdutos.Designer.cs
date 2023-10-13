@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             dgvListProd = new DataGridView();
+            btnCancel = new Button();
             identificador = new DataGridViewTextBoxColumn();
-            nome_product = new DataGridViewTextBoxColumn();
+            id_produto = new DataGridViewTextBoxColumn();
             quantidade = new DataGridViewTextBoxColumn();
             valor_unitario = new DataGridViewTextBoxColumn();
             subtotal = new DataGridViewTextBoxColumn();
-            btnCancel = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvListProd).BeginInit();
             SuspendLayout();
             // 
@@ -43,34 +43,43 @@
             dgvListProd.AllowUserToAddRows = false;
             dgvListProd.AllowUserToDeleteRows = false;
             dgvListProd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvListProd.Columns.AddRange(new DataGridViewColumn[] { identificador, nome_product, quantidade, valor_unitario, subtotal });
-            dgvListProd.Location = new Point(63, 63);
+            dgvListProd.Columns.AddRange(new DataGridViewColumn[] { identificador, id_produto, quantidade, valor_unitario, subtotal });
+            dgvListProd.Location = new Point(61, 58);
             dgvListProd.Name = "dgvListProd";
             dgvListProd.ReadOnly = true;
             dgvListProd.RowHeadersWidth = 51;
             dgvListProd.RowTemplate.Height = 29;
-            dgvListProd.Size = new Size(557, 188);
+            dgvListProd.Size = new Size(680, 188);
             dgvListProd.TabIndex = 0;
             dgvListProd.CellContentClick += dgvListProd_CellContentClick;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(325, 318);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(191, 46);
+            btnCancel.TabIndex = 1;
+            btnCancel.Text = "Cancelar";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // identificador
             // 
             identificador.DataPropertyName = "id_venda";
-            identificador.HeaderText = "identificador";
+            identificador.HeaderText = "Numero Venda";
             identificador.MinimumWidth = 6;
             identificador.Name = "identificador";
             identificador.ReadOnly = true;
-            identificador.Visible = false;
             identificador.Width = 125;
             // 
-            // nome_product
+            // id_produto
             // 
-            nome_product.DataPropertyName = "nome_produto";
-            nome_product.HeaderText = "nome_product";
-            nome_product.MinimumWidth = 6;
-            nome_product.Name = "nome_product";
-            nome_product.ReadOnly = true;
-            nome_product.Width = 125;
+            id_produto.DataPropertyName = "id_produto";
+            id_produto.HeaderText = "id_product";
+            id_produto.MinimumWidth = 6;
+            id_produto.Name = "id_produto";
+            id_produto.ReadOnly = true;
+            id_produto.Width = 125;
             // 
             // quantidade
             // 
@@ -99,16 +108,6 @@
             subtotal.ReadOnly = true;
             subtotal.Width = 125;
             // 
-            // btnCancel
-            // 
-            btnCancel.Location = new Point(301, 305);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(94, 32);
-            btnCancel.TabIndex = 1;
-            btnCancel.Text = "Cancelar";
-            btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
-            // 
             // FormVendaProdutos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -126,11 +125,11 @@
         #endregion
 
         private DataGridView dgvListProd;
+        private Button btnCancel;
         private DataGridViewTextBoxColumn identificador;
-        private DataGridViewTextBoxColumn nome_product;
+        private DataGridViewTextBoxColumn id_produto;
         private DataGridViewTextBoxColumn quantidade;
         private DataGridViewTextBoxColumn valor_unitario;
         private DataGridViewTextBoxColumn subtotal;
-        private Button btnCancel;
     }
 }
