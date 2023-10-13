@@ -143,6 +143,17 @@ namespace Ambev
             catch (Exception ex)
             { }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VendasForm vendas = new VendasForm();
+            vendas.ShowDialog();
+        }
+
+        private void dgvAmbev_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

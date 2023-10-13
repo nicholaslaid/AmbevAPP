@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             dgvAmbev = new DataGridView();
-            btnAdd = new Button();
             id = new DataGridViewTextBoxColumn();
             Valor_unitario = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
@@ -38,6 +37,8 @@
             Volume = new DataGridViewTextBoxColumn();
             Frasco = new DataGridViewTextBoxColumn();
             Deletar = new DataGridViewButtonColumn();
+            btnAdd = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAmbev).BeginInit();
             SuspendLayout();
             // 
@@ -54,16 +55,7 @@
             dgvAmbev.Size = new Size(928, 385);
             dgvAmbev.TabIndex = 0;
             dgvAmbev.CellClick += dgvAmbev_CellClick;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(1038, 321);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(94, 41);
-            btnAdd.TabIndex = 1;
-            btnAdd.Text = "Adicionar";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
+            dgvAmbev.CellContentClick += dgvAmbev_CellContentClick;
             // 
             // id
             // 
@@ -140,11 +132,32 @@
             Deletar.ToolTipText = "Deletar";
             Deletar.Width = 125;
             // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(1032, 187);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(94, 41);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "Adicionar";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(35, 410);
+            button1.Name = "button1";
+            button1.Size = new Size(928, 29);
+            button1.TabIndex = 2;
+            button1.Text = "Lista de Vendas";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // View
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1177, 451);
+            Controls.Add(button1);
             Controls.Add(btnAdd);
             Controls.Add(dgvAmbev);
             Name = "View";
@@ -166,5 +179,6 @@
         private DataGridViewTextBoxColumn Volume;
         private DataGridViewTextBoxColumn Frasco;
         private DataGridViewButtonColumn Deletar;
+        private Button button1;
     }
 }

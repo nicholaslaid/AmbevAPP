@@ -126,6 +126,46 @@ namespace Ambev.Api
 
             return result;
         }
+
+        public List<Vendas> GetAllVendas(string token)
+        {
+            Cripto cripto = new Cripto();
+            List<Vendas> result = new List<Vendas>();
+            ApiBase api = new ApiBase();
+
+            Result response = new Result();
+
+            string tk = cripto.EncryptTripleDES(token);
+            response = api.GetComand("Ambev/ListaVendas?token=" + tk);
+
+            if (response.success == true)
+            {
+                string parameters = cripto.DecryptTrypleDES(response.data);
+                result = JsonConvert.DeserializeObject<List<Vendas>>(parameters);
+            }
+
+            return result;
+        }
+
+        public List<info> VendasProdutos(string token)
+        {
+            Cripto cripto = new Cripto();
+            List<info> result = new List<info>();
+            ApiBase api = new ApiBase();
+
+            Result response = new Result();
+
+            string tk = cripto.EncryptTripleDES(token);
+            response = api.GetComand("Ambev/ListaProdutos?token=" + tk);
+
+            if (response.success == true)
+            {
+                string parameters = cripto.DecryptTrypleDES(response.data);
+                result = JsonConvert.DeserializeObject<List<info>>(parameters);
+            }
+
+            return result;
+        }
         public bool Delete(string token, int id)
         {
             ApiBase api = new ApiBase();
